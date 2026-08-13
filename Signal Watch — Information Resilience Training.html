@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)file:///C:/Users/ASUS/Downloads/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Watch — Information Resilience Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Signal Watch — Information Resilience Training_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0F14;
+    --panel:#141B22;
+    --panel-raised:#1B242D;
+    --line: rgba(237,234,224,0.12);
+    --line-strong: rgba(237,234,224,0.24);
+    --paper:#EDEAE0;
+    --paper-dim: rgba(237,234,224,0.62);
+    --paper-faint: rgba(237,234,224,0.38);
+    --amber:#E8A33D;
+    --amber-dim: rgba(232,163,61,0.14);
+    --teal:#3E7C6B;
+    --teal-dim: rgba(62,124,107,0.16);
+    --red:#B84A3E;
+    --red-dim: rgba(184,74,62,0.16);
+    --display: 'Space Grotesk', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif: 'Source Serif 4', serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--serif);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:6px;height:6px;
+    background:var(--amber);
+    border-radius:50%;
+    box-shadow:0 0 8px var(--amber);
+    flex-shrink:0;
+  }
+
+  h1,h2,h3{
+    font-family:var(--display);
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .hairline{
+    border:none;
+    border-top:1px solid var(--line);
+  }
+
+  /* ===== NAV ===== */
+  header.site{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(11,15,20,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:14px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    color:var(--paper);
+  }
+  .brand .dot{
+    width:9px;height:9px;
+    background:var(--amber);
+    box-shadow:0 0 10px var(--amber);
+  }
+  .brand b{font-weight:600;}
+  .navlinks{
+    display:flex;
+    gap:32px;
+    list-style:none;
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.03em;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--paper-dim);
+    transition:color .2s;
+    position:relative;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--paper);}
+  .nav-cta{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--amber);
+    padding:10px 18px;
+    text-decoration:none;
+    border:1px solid var(--amber);
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:transparent; color:var(--amber);}
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line-strong);
+    color:var(--paper);
+    width:40px;height:40px;
+    font-family:var(--mono);
+    font-size:16px;
+    cursor:pointer;
+  }
+  @media (max-width:860px){
+    .navlinks, .nav-cta{display:none;}
+    .menu-toggle{display:block;}
+    .navlinks.open{
+      display:flex;
+      flex-direction:column;
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--panel);
+      border-bottom:1px solid var(--line);
+      padding:20px 20px 24px;
+      gap:18px;
+    }
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    padding:168px 0 90px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+    .hero{padding-top:140px;}
+  }
+  .hero h1{
+    font-size:clamp(34px, 5vw, 58px);
+    line-height:1.06;
+    margin:20px 0 22px;
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--amber);
+  }
+  .hero p.lead{
+    font-family:var(--serif);
+    font-size:18px;
+    color:var(--paper-dim);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:15px 26px;
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid var(--amber);
+    transition:all .2s;
+  }
+  .btn-primary{
+    background:var(--amber);
+    color:var(--ink);
+  }
+  .btn-primary:hover{background:transparent; color:var(--amber);}
+  .btn-ghost{
+    border-color:var(--line-strong);
+    color:var(--paper);
+  }
+  .btn-ghost:hover{border-color:var(--paper);}
+  .btn:focus-visible, a:focus-visible, button:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+  }
+
+  /* console panel */
+  .console{
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:22px 22px 18px;
+  }
+  .console-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--paper-faint);
+    margin-bottom:16px;
+  }
+  .console-head .rec{
+    display:flex; align-items:center; gap:7px; color:var(--red);
+  }
+  .console-head .rec::before{
+    content:"";
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--red);
+    animation:pulse 1.4s infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+  .waveform{
+    width:100%;
+    height:64px;
+    display:block;
+  }
+  .waveform path{
+    stroke:var(--amber);
+    stroke-width:1.6;
+    fill:none;
+  }
+
+  .ticker-wrap{
+    margin-top:16px;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    height:120px;
+    position:relative;
+    overflow:hidden;
+  }
+  .ticker-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:14px;
+    padding:9px 0;
+    font-family:var(--mono);
+    font-size:12.5px;
+    border-bottom:1px dashed var(--line);
+    opacity:0;
+    animation:fadeIn .5s forwards;
+  }
+  .ticker-row .claim{color:var(--paper-dim); flex:1;}
+  .tag{
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    padding:3px 8px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .tag.verified{background:var(--teal-dim); color:var(--teal);}
+  .tag.flagged{background:var(--red-dim); color:var(--red);}
+  .tag.pending{background:var(--amber-dim); color:var(--amber);}
+  @keyframes fadeIn{to{opacity:1;}}
+
+  /* ===== SECTION shared ===== */
+  section{
+    padding:96px 0;
+    border-top:1px solid var(--line);
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:52px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(26px, 3.4vw, 38px);
+    color:var(--paper);
+    margin-top:14px;
+  }
+  .section-head .note{
+    font-family:var(--serif);
+    font-size:15px;
+    color:var(--paper-faint);
+    max-width:34ch;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+  }
+  @media (max-width:860px){
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+  }
+  .about-grid p{
+    color:var(--paper-dim);
+    font-size:16.5px;
+    margin-bottom:18px;
+    max-width:58ch;
+  }
+  .stat-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .stat{
+    background:var(--ink);
+    padding:26px 22px;
+  }
+  .stat .num{
+    font-family:var(--display);
+    font-size:32px;
+    font-weight:700;
+    color:var(--amber);
+    display:block;
+  }
+  .stat .label{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    color:var(--paper-faint);
+    text-transform:uppercase;
+    margin-top:6px;
+    display:block;
+  }
+
+  /* ===== GALLERY (field exhibits) ===== */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:760px){
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:500px){
+    .gallery-grid{grid-template-columns:1fr;}
+  }
+  .exhibit{
+    background:var(--panel);
+    padding:26px 22px 24px;
+    min-height:200px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:background .2s;
+  }
+  .exhibit:hover{background:var(--panel-raised);}
+  .exhibit .exhibit-id{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--paper-faint);
+    letter-spacing:0.06em;
+  }
+  .exhibit h3{
+    font-size:17px;
+    margin:14px 0 8px;
+    color:var(--paper);
+  }
+  .exhibit p{
+    font-family:var(--serif);
+    font-size:14px;
+    color:var(--paper-dim);
+  }
+  .exhibit .verdict{
+    margin-top:16px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    display:inline-block;
+    padding:4px 9px;
+    width:fit-content;
+  }
+
+  /* ===== SERVICES / MODULES ===== */
+  .modules{
+    display:flex;
+    flex-direction:column;
+    border-top:1px solid var(--line);
+  }
+  .module{
+    display:grid;
+    grid-template-columns:90px 1fr 200px;
+    gap:24px;
+    align-items:start;
+    padding:30px 0;
+    border-bottom:1px solid var(--line);
+  }
+  @media (max-width:760px){
+    .module{grid-template-columns:56px 1fr; }
+    .module .module-meta{grid-column:1 / -1; padding-left:80px; margin-top:-8px;}
+  }
+  .module-index{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--amber);
+    padding-top:4px;
+  }
+  .module h3{
+    font-size:20px;
+    color:var(--paper);
+    margin-bottom:8px;
+  }
+  .module p{
+    color:var(--paper-dim);
+    font-size:15px;
+    max-width:56ch;
+  }
+  .module-meta{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--paper-faint);
+    text-align:right;
+    line-height:2;
+  }
+  @media (max-width:760px){
+    .module-meta{text-align:left;}
+  }
+  .module-meta span{display:block;}
+
+  /* ===== CONTACT ===== */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+  }
+  @media (max-width:860px){
+    .contact-grid{grid-template-columns:1fr; gap:44px;}
+  }
+  .contact-info p{
+    color:var(--paper-dim);
+    font-size:16px;
+    max-width:44ch;
+    margin-bottom:28px;
+  }
+  .contact-line{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:13px;
+  }
+  .contact-line span:first-child{color:var(--paper-faint); text-transform:uppercase; letter-spacing:0.05em;}
+
+  form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .field label{
+    display:block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--paper-faint);
+    margin-bottom:8px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%;
+    background:var(--panel);
+    border:1px solid var(--line-strong);
+    color:var(--paper);
+    padding:13px 14px;
+    font-family:var(--serif);
+    font-size:15px;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none;
+    border-color:var(--amber);
+  }
+  .field textarea{resize:vertical; min-height:100px;}
+  .submit-row{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-top:6px;
+  }
+  .submit-note{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--paper-faint);
+  }
+  .form-status{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--teal);
+    display:none;
+  }
+  .form-status.show{display:block;}
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top:1px solid var(--line);
+    padding:40px 0;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--paper-faint);
+  }
+  .footer-row a{text-decoration:none; color:var(--paper-faint);}
+  .footer-row a:hover{color:var(--paper);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="file:///C:/Users/ASUS/Downloads/index.html#top" class="brand"><span class="dot"></span><b>SIGNAL WATCH</b>&nbsp;/ training</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">≡</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="file:///C:/Users/ASUS/Downloads/index.html#about">About</a></li>
+      <li><a href="file:///C:/Users/ASUS/Downloads/index.html#gallery">Field Exhibits</a></li>
+      <li><a href="file:///C:/Users/ASUS/Downloads/index.html#services">Modules</a></li>
+      <li><a href="file:///C:/Users/ASUS/Downloads/index.html#contact">Apply</a></li>
+    </ul>
+    <a href="file:///C:/Users/ASUS/Downloads/index.html#contact" class="nav-cta">Request Access</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none; padding-top:168px;">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Cohort 14 · Enrolling now</div>
+        <h1>Train your team to see<br><em>through</em> the noise.</h1>
+        <p class="lead">Signal Watch is a practitioner-led training program in disinformation analysis, source verification, and narrative-manipulation detection — built for journalists, trust &amp; safety teams, and civic researchers.</p>
+        <div class="hero-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/index.html#contact" class="btn btn-primary">Request access</a>
+          <a href="file:///C:/Users/ASUS/Downloads/index.html#services" class="btn btn-ghost">View curriculum</a>
+        </div>
+      </div>
+
+      <div class="console" aria-hidden="false">
+        <div class="console-head">
+          <span>Live triage feed</span>
+          <span class="rec">monitoring</span>
+        </div>
+        <svg class="waveform" viewBox="0 0 400 64" preserveAspectRatio="none">
+          <path d="M0,32 L20,32 L28,10 L36,54 L44,20 L52,44 L60,32 L80,32 L88,14 L96,50 L104,26 L112,38 L120,32 L400,32"></path>
+        </svg>
+        <div class="ticker-wrap" id="tickerWrap">
+          <!-- populated by JS -->
+        <div class="ticker-row"><span class="claim">Screenshot of a since-deleted official statement</span><span class="tag pending">Reviewing</span></div><div class="ticker-row"><span class="claim">Photo dated 2024, reverse-search shows 2019 origin</span><span class="tag flagged">Miscontextualized</span></div><div class="ticker-row"><span class="claim">Independent outlet corroborates original report</span><span class="tag verified">Verified</span></div><div class="ticker-row"><span class="claim">“Viral clip shows officials admitting X”</span><span class="tag flagged">Manipulated</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow">About the program</div>
+        <h2>A field discipline, taught like one.</h2>
+      </div>
+      <div>
+        <p>Most media-literacy courses stop at "check your sources." Signal Watch goes further: participants work directly with anonymized case files — coordinated inauthentic campaigns, manipulated media, and astroturfed narratives — under the same time pressure analysts face in the field.</p>
+        <p>The program was built by former newsroom verification leads and open-source investigators, and is used by newsroom standards desks, election-integrity teams, and corporate trust &amp; safety groups who need staff who can move from "something feels off" to a documented, defensible finding.</p>
+        <div class="stat-list">
+          <div class="stat"><span class="num">3,200+</span><span class="label">Analysts trained</span></div>
+          <div class="stat"><span class="num">41</span><span class="label">Partner newsrooms</span></div>
+          <div class="stat"><span class="num">6 wks</span><span class="label">Core program length</span></div>
+          <div class="stat"><span class="num">92%</span><span class="label">Report skill retention at 6mo</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY / FIELD EXHIBITS -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Field exhibits</div>
+          <h2>From the case archive</h2>
+        </div>
+        <p class="note">A sample of the anonymized, declassified case studies participants work through during the program.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="exhibit">
+          <div>
+            <span class="exhibit-id">CASE 014-A</span>
+            <h3>The synthetic byline</h3>
+            <p>Fifteen "local news" sites, one shared CMS fingerprint, zero real reporters.</p>
+          </div>
+          <span class="verdict tag flagged">Coordinated network</span>
+        </div>
+        <div class="exhibit">
+          <div>
+            <span class="exhibit-id">CASE 022-C</span>
+            <h3>The recut clip</h3>
+            <p>A three-second edit reversed the meaning of a public statement before it went viral.</p>
+          </div>
+          <span class="verdict tag flagged">Manipulated media</span>
+        </div>
+        <div class="exhibit">
+          <div>
+            <span class="exhibit-id">CASE 031-B</span>
+            <h3>The borrowed statistic</h3>
+            <p>A real 2011 study, cited with a fabricated 2024 headline stapled on top.</p>
+          </div>
+          <span class="verdict tag flagged">Miscontextualized</span>
+        </div>
+        <div class="exhibit">
+          <div>
+            <span class="exhibit-id">CASE 008-D</span>
+            <h3>The account cluster</h3>
+            <p>Two hundred accounts, one registration window, identical posting cadence.</p>
+          </div>
+          <span class="verdict tag pending">Under review</span>
+        </div>
+        <div class="exhibit">
+          <div>
+            <span class="exhibit-id">CASE 019-E</span>
+            <h3>The verified original</h3>
+            <p>A whistleblower document, checked against metadata and independently confirmed.</p>
+          </div>
+          <span class="verdict tag verified">Verified authentic</span>
+        </div>
+        <div class="exhibit">
+          <div>
+            <span class="exhibit-id">CASE 027-F</span>
+            <h3>The satire mistaken for fact</h3>
+            <p>A parody outlet's piece, stripped of context and shared as a genuine report.</p>
+          </div>
+          <span class="verdict tag pending">Context disputed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / MODULES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Curriculum</div>
+          <h2>Five training modules</h2>
+        </div>
+        <p class="note">Delivered live over six weeks, or as a compressed two-day intensive for teams.</p>
+      </div>
+
+      <div class="modules">
+        <div class="module">
+          <div class="module-index">01</div>
+          <div>
+            <h3>Source verification fundamentals</h3>
+            <p>Chain-of-custody thinking for digital claims: primary vs. secondary sourcing, reverse image search, metadata basics, and building a documented trail.</p>
+          </div>
+          <div class="module-meta"><span>Format: Live + labs</span><span>Duration: 1 week</span></div>
+        </div>
+        <div class="module">
+          <div class="module-index">02</div>
+          <div>
+            <h3>Narrative &amp; network mapping</h3>
+            <p>How coordinated campaigns spread — identifying amplification patterns, inauthentic clusters, and the difference between organic virality and manufactured reach.</p>
+          </div>
+          <div class="module-meta"><span>Format: Case lab</span><span>Duration: 1 week</span></div>
+        </div>
+        <div class="module">
+          <div class="module-index">03</div>
+          <div>
+            <h3>Media forensics</h3>
+            <p>Detecting manipulated images, audio, and video — from crude edits to AI-generated synthetic media — using accessible, non-technical checks.</p>
+          </div>
+          <div class="module-meta"><span>Format: Live + labs</span><span>Duration: 1 week</span></div>
+        </div>
+        <div class="module">
+          <div class="module-index">04</div>
+          <div>
+            <h3>Writing the finding</h3>
+            <p>Turning an investigation into a clear, defensible report — for a newsroom standards desk, a trust &amp; safety escalation, or a public correction.</p>
+          </div>
+          <div class="module-meta"><span>Format: Workshop</span><span>Duration: 1 week</span></div>
+        </div>
+        <div class="module">
+          <div class="module-index">05</div>
+          <div>
+            <h3>Capstone: live case</h3>
+            <p>Teams work a current, real-world case end to end and present findings to programme mentors for review.</p>
+          </div>
+          <div class="module-meta"><span>Format: Team project</span><span>Duration: 2 weeks</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow">Enrollment</div>
+        <h2 style="margin-top:14px; margin-bottom:18px; font-size:clamp(26px,3.4vw,36px); color:var(--paper);">Request access to Cohort 14</h2>
+        <p>Signal Watch is admitted by application. We prioritize newsroom teams, civic-integrity organizations, and trust &amp; safety groups. Tell us about your team and we'll follow up within three business days.</p>
+        <div class="contact-line"><span>Email</span><span>admissions@signalwatch.example</span></div>
+        <div class="contact-line"><span>Cohort start</span><span>Rolling, monthly</span></div>
+        <div class="contact-line"><span>Format</span><span>Remote, live sessions</span></div>
+        <div class="contact-line"><span>Team rate</span><span>Available on request</span></div>
+      </div>
+
+      <form id="applyForm">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required="">
+        </div>
+        <div class="field">
+          <label for="org">Organization</label>
+          <input type="text" id="org" name="org" required="">
+        </div>
+        <div class="field">
+          <label for="role">Role</label>
+          <select id="role" name="role">
+            <option>Journalist / editor</option>
+            <option>Trust &amp; safety</option>
+            <option>Civic / election integrity</option>
+            <option>Researcher / academic</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">What are you hoping to bring back to your team?</label>
+          <textarea id="msg" name="msg"></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary" style="border:1px solid var(--amber); cursor:pointer;">Submit application</button>
+          <span class="submit-note">No payment required to apply</span>
+        </div>
+        <div class="form-status" id="formStatus">Application received — check your email for next steps.</div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Signal Watch Training Program</span>
+    <span><a href="file:///C:/Users/ASUS/Downloads/index.html#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navlinks = document.getElementById('navlinks');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navlinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navlinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Hero ticker: simulated claim triage feed
+  const claims = [
+    { text: "\u201cViral clip shows officials admitting X\u201d", tag: "flagged", label: "Manipulated" },
+    { text: "Quoted study on regional turnout figures", tag: "verified", label: "Verified" },
+    { text: "Cluster of new accounts sharing identical caption", tag: "flagged", label: "Coordinated" },
+    { text: "Screenshot of a since-deleted official statement", tag: "pending", label: "Reviewing" },
+    { text: "Photo dated 2024, reverse-search shows 2019 origin", tag: "flagged", label: "Miscontextualized" },
+    { text: "Independent outlet corroborates original report", tag: "verified", label: "Verified" },
+  ];
+
+  const wrap = document.getElementById('tickerWrap');
+  let i = 0;
+  const rows = [];
+
+  function pushClaim() {
+    const c = claims[i % claims.length];
+    i++;
+    const row = document.createElement('div');
+    row.className = 'ticker-row';
+    row.innerHTML = `<span class="claim">${c.text}</span><span class="tag ${c.tag}">${c.label}</span>`;
+    wrap.appendChild(row);
+    rows.push(row);
+    if (rows.length > 4) {
+      const old = rows.shift();
+      old.remove();
+    }
+  }
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  pushClaim(); pushClaim(); pushClaim();
+  if (!reduceMotion) {
+    setInterval(pushClaim, 2600);
+  }
+
+  // Contact form (static demo — no backend)
+  const form = document.getElementById('applyForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status.classList.add('show');
+    form.querySelector('button[type="submit"]').textContent = 'Submitted';
+  });
+</script>
+
+
+
+</body></html>
